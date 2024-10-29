@@ -9,7 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
 
-
 @Repository
 public class userRepository {
 
@@ -17,8 +16,14 @@ public class userRepository {
     private EntityManager entityManager;
 
     public List<Object[]> findUserByIdUnsafe(String id) {
-        String sql = "SELECT * FROM users WHERE id = '" + id + "'";
+        // is digit
+        if (!id.matches("\\d+")) {
+            throw new IllegalArgumentException("Invalid user ID");
+        }
+        String sql = "SELECT * FROM users WHERE id = :id";
         Query query = entityManager.createNativeQuery(sql);
+        query.setParameter("id", id);
         return query.getResultList();
+
     }
 }
