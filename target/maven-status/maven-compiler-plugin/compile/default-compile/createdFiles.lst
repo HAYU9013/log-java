@@ -1,4 +1,6 @@
-com/gss/demo/controller/demoController.class
-com/gss/demo/DemoApplication.class
-com/gss/demo/controller/log4jController.class
-com/gss/demo/controller/sqlite.class
+com\gss\demo\repository\userRepository.class
+com\gss\demo\enity\User.class
+com\gss\demo\controller\sqlController.class
+com\gss\demo\DemoApplication.class
+com\gss\demo\controller\log4jController.class
+com\gss\demo\controller\demoController.class
